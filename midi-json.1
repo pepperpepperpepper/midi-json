@@ -1,0 +1,77 @@
+'\" t
+.TH MIDI-JSON 1 "4 JUL 2014"
+.UC 4
+.SH NAME
+midi-json \- translate MIDI file to a json array of MIDI events 
+.SH SYNOPSIS
+.B midi-json
+[
+.B \-u
+.B \-v
+] [
+.I infile
+[
+.I outfile
+] ]
+.SH DESCRIPTION
+.B midi-json
+reads a standard MIDI file and decodes it into a
+json array of events, each event with type, track and time
+parameters. This script was adapted from midiscsv by John Walker
+and preserves all data within the MIDIFILE
+information in the MIDI file.  
+.B midi-json
+.SH OPTIONS
+.TP 10
+.B \-u
+Print how-to-call information.
+.TP
+.B \-v
+Print verbose debugging information on standard
+error.  The MIDI file header is dumped, along
+with the length of each track in the file.
+.SH FILES
+If no
+.I infile
+is specified or
+.I infile
+is
+.RB `` \- '',
+.B midi-json
+reads its input from standard input; if no
+.I outfile
+is given or
+.I outfile
+is
+.RB `` \- '',
+CSV output is written  to standard output.  The input and
+output are processed in a strictly serial manner; consequently
+.B midi-json
+may be used in pipelines without restrictions.
+.SH BUGS
+.PP
+.B midi-json
+assumes its input is a well-formed standard MIDI file;
+while some error checking is performed, gross errors in
+the input file may cause
+.B midi-json
+to crash.
+.PP
+Please report problems to
+.BR bugs@fourmilab.ch .
+.SH "SEE ALSO"
+.PD
+.BR midi-json (5)
+.ne 10
+.SH AUTHOR
+.ce 2
+Pube Douchevitz
+http://www.spermwhale.info/
+John Walker
+http://www.fourmilab.ch/
+.PP
+This software is in the public domain.
+Permission to use, copy, modify, and distribute this software and its
+documentation for any purpose and without fee is hereby granted,
+without any conditions or restrictions.  This software is provided ``as
+is'' without express or implied warranty.
